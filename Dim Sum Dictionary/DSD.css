@@ -1,0 +1,90 @@
+/*CSS Breakpoints*/
+
+html{
+  min-width: 1100px;
+}
+
+h1,h2{
+  font-family: "Century Gothic";
+}
+
+/*https://alligator.io/css/position-sticky/*/
+h2{
+  position: -webkit-sticky;
+  position: sticky;
+  top:0;
+  background-color: white;
+  z-index: 99;
+  padding: 20px 0px;
+}
+
+
+#title{
+  right: 0;
+  left: 0;
+  margin-right: 80%;
+  margin-left: 20%;
+  position: fixed;
+  font-size: 300%;
+}
+
+.row{
+  display: flex;
+}
+
+.column{
+  flex: 50%;
+}
+
+
+/*This chunk of code aligns pictures to left with text to right*/
+/*https://stackoverflow.com/questions/35663419/how-can-i-align-multi-line-text-next-to-an-image-without-it-wrapping-underneath*/
+/*begin 1*/
+.food-details-wrapper {
+  display: table-row;
+}
+.food-picture {
+  display: table-cell;
+  vertical-align: top;
+  margin: 5px 10px 5px 0px;
+}
+.food-details {
+  display: table-cell;
+  vertical-align: top;
+}
+/*end 1*/
+
+/*
+img{opacity: 0.8;}
+img:hover{opacity: 1;}
+*/
+
+/* This is no longer needed */
+/*
+.food-table{display: block;}
+*/
+
+/*This chunk of code makes a table of contents*/
+/*https://www.tipsandtricks-hq.com/simple-table-of-contents-toc-using-pure-html-and-css-code-9217*/
+/*Begin 2*/
+#toc_container {
+    background: #f9f9f9 none repeat scroll 0 0;
+    display: table;
+    font-family: "Century Gothic";
+    font-size: 95%;
+    padding: 20px 20px 20px 1px;
+    width: auto;
+    position: fixed;
+    margin: 15em auto auto 19.75%; /*margin: top right bottom left*/
+    opacity: 0.75;
+}
+
+.toc_title {
+    font-weight: 700;
+    text-align: center;
+}
+
+#toc_container li, #toc_container ul, #toc_container ul li{
+    list-style: outside none none !important;
+}
+/*End 2*/
