@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<!--How do I make pages again? : Slider Page + Stats page-->
+<!--Page1: slider-->
+<html>
+
+<head>
+  <link href="./Balance_v3.css" type="text/css" rel="stylesheet"> <!--link CSS-->
+</head>
+
+<header>
+  <div class="links">
+    <a href="./BalanceCalendar.html">Calendar</a>
+    <a href="./BalanceStats.html">Statistics</a>
+  </div>
+</header>
+
+<body>
+  <div id="banner">
+    <div class="heading">
+      <h1>BALANCE</h1>
+    </div>
+  </div>
+
+  <form action="/action_page.php" class="slidecontainer">
+    <input type="range" min="-3" max="3" value="0" class="slider line" id="myRange">
+
+    <h2 class="label1 line">work</h2>
+    <h2 class="label2 line">life</h2>
+
+    <p> Value: <span id="value"></span></p>
+
+    <input type="submit" value="SUBMIT">
+  </form>
+
+  <script>
+    //SEE - OneDrive/Biostats/JS/Ch5 Objects/JS_ch5_examp8(table,arraOfObjects) Create an array of objects???
+    //Create a table using the arrays
+    //Create graphs using the arrays
+    var slider = document.getElementById("myRange"); //this makes a "slider" variable in JS from the HTML slider by calling it's id
+    var output = document.getElementById("value"); //this makes an "output" variable in JS for the spot in the HTML that refers to demo
+    output.innerHTML = slider.value; //.innerHTML is basically like console.log? this makes it log the "output" variable as the value of the "slider" variable
+    slider.oninput = function(){ // .oninput means it changes based on the input
+      output.innerHTML = this.value; //ouput.innrhtml is made to be the current value of the "slider" variable through this function
+    }
+
+    //var save = new Array();
+    //save[0][0] = output;
+    //save[0][1] = new Date();
+
+  </script>
+
+  <!--
+  <div class="submit">
+    <a href="./BalanceCalendar.html">
+      SUBMIT
+    </a>
+  </div>
+  -->
+</body>
+
+<!--
+<footer>
+  <script>
+    let d = new Date();
+    document.footer.innerHTML = "<h1> " + d + "</h1>"
+  </script>
+</footer>
+-->
+<!--Page 2: Stats-->
+</html>

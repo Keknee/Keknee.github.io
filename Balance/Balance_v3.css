@@ -1,0 +1,128 @@
+html {
+min-width: 800px;
+position: relative;
+}
+
+header{
+  background-color: white;
+  opacity: 0.7;
+  width: 100%;
+}
+
+.links{
+  padding: 0 20px;
+  text-align: center;
+}
+
+.links a{
+  color: black;
+  font-size: 16px;
+  font-weight: 300;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 80px;
+  padding: 5px 30px;
+}
+
+body{
+  font-family: "Century Gothic";
+/*  background-color: #EAF2F8;*/
+  /*background-image: url("https://images.pexels.com/photos/917494/pexels-photo-917494.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");*/
+  background-image: url("https://images.pexels.com/photos/977080/pexels-photo-977080.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  /*background: -webkit- linear-gradient(-45deg, #5499C7, #EAF2F8);*/
+}
+
+#banner .heading{
+  color: navy;
+  text-align: center;
+  letter-spacing: 5px;
+}
+
+#banner .heading h1{
+  top: 50px;
+  width: 200px;
+  padding: 10px;
+  margin: 200px auto 20px auto;
+  border: 3px solid navy;
+  float: center;
+}
+
+/*the slider is weird - having trouble centering and aligned with text */
+.slidecontainer{
+  padding: 40px 80px; /*to make it lower on the bottom*/
+  background-color: white;
+  opacity: 0.8;
+  text-align: center;
+}
+
+.line{
+  display: inline;
+}
+
+.label1{
+  position: relative;
+  right: 325px;
+  color: purple;
+}
+
+.label2{
+  position: relative;
+  left: 300px;
+  color: orange;
+}
+
+.slider{
+  -webkit-appearance: none; /*Override default CSS styles*/
+  appearance: none;
+  height: 25px;
+  width: 600px;
+  background: linear-gradient(to right, purple, orange);
+  outline: none;
+  opacity:0.7;
+  /*new code from online*/
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: gray;
+  cursor: pointer;
+}
+
+/* Use this to move labels and slider inline
+h2{
+  display: inline-block;
+}
+*/
+input[type=submit]{
+  background: teal;
+  border: 1px solid teal;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 12px;
+  opacity: 0.75;
+  text-align: center;
+
+}
+
+/*
+.submit{
+  text-align: center;
+  padding: 40px;
+}
+
+.submit a{
+  background: teal;
+  border: 1px solid teal;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 12px;
+  opacity: 0.50;
+}
+*/

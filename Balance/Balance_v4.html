@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<!--How do I make pages again? : Slider Page + Stats page-->
+<!--Page1: slider-->
+<html>
+
+
+<head>
+  <link href="./Balance_v4.css" type="text/css" rel="stylesheet"> <!--link CSS-->
+</head>
+<!--
+<header>
+  <div class="links">
+    <a href="./BalanceCalendar.html">Calendar</a>
+    <a href="./BalanceStats.html">Statistics</a>
+  </div>
+</header>
+-->
+<body>
+  <div id="banner">
+    <div class="heading">
+      <h1>BALANCE</h1>
+    </div>
+  </div>
+
+  <form class="slidecontainer">
+    <input type="range" min="-3" max="3" value="0" class="slider line" id="myRange">
+    <h2 class="label1 line">work</h2>
+    <h2 class="label2 line">life</h2>
+  </form>
+
+  <button type="enter" onclick="enter()">Submit</button>
+  <button type="finish" onclick="finish()">Finish</button>
+
+  <p id="results"></p>
+
+  <script src="./Balance_v4.js" type="text/javascript"></script>
+
+</body>
+
+<!--
+<footer>
+  <script>
+    let d = new Date();
+    document.footer.innerHTML = "<h1> " + d + "</h1>"
+  </script>
+</footer>
+-->
+<!--Page 2: Stats-->
+</html>

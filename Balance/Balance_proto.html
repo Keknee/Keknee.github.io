@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd”>
+<html xmlns=”http://www.w3.org/1999/xhtml”>
+
+<head>
+  <script type="text/javascript">
+
+    //Define the properties of the object-creating function
+    function BalanceInput(inputDate, input, order)
+    {
+      this.inputDate = inputDate;
+      this.input = input;
+      this.order = order;
+    }
+
+    //Define the Methods (functions)
+    BalanceInput.prototype.getInputDate = function()
+    {
+      return this.inputDate;
+    }
+    BalanceInput.prototype.setInputDate = function(inputDate)
+    {
+      this.inputDate = inputDate;
+    }
+    BalanceInput.prototype.getInput = function()
+    {
+      return this.input;
+    }
+    BalanceInput.prototype.setInput = function(input)
+    {
+      this.input = input;
+    }
+    BalanceInput.prototype.getOrder = function()
+    {
+      return this.order;
+    }
+    BalanceInput.prototype.setOrder = function(order)
+    {
+      this.order = order;
+    }
+
+    //Create an array to store the inputs by ID
+    function User()
+    {
+      this.dailyInputs = new Array();
+    }
+    //Add to the array using the nested BalanceInput() functions
+    User.prototype.addInput = function(inputDate, input, order)
+    {
+      this.dailyInputs[order] = new BalanceInput(inputDate, input, order);
+    }
+
+    //function to create table to show Results
+    User.prototype.getInputTable = function()
+    {
+      var i //just a variable to feed into the for loop
+      var inputTableHTML = "<table border=1>";
+
+      for (i in this.dailyInputs)
+      {
+        inputTableHTML += "<tr><td>";
+        inputTableHTML += this.dailyInputs[i].getInputDate();
+        inputTableHTML += "</td>";
+
+        inputTableHTML += "<td>"
+        inputTableHTML += this.dailyInputs[i].getInput();
+        inputTableHTML += "</td>"
+
+        inputTableHTML +="</tr>";
+      }
+      inputTableHTML += "</table>";
+      return inputTableHTML;
+    }
+  </script>
+</head>
+
+<header>
+</header>
+
+<body>
+  <div id="banner">
+    <div class="heading">
+      <h1>BALANCE<h1>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+
+  //Add some fake entries
+  var User1 = new User();
+  User1.addInput("27 September 2018", 5, 0);
+  User1.addInput("28 September 2018", 10, 1);
+
+  //Add the new entry
+  var entry = prompt("How was your Work/Life Balance today? (1-10)","5");
+  var entryOrder = 1
+  if (entry != null)
+  {
+    entryOrder++;
+  }
+
+  //Date
+  var months = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+  var dateNow = new Date();
+  var yearNow = dateNow.getFullYear();
+  var monthNow = months[dateNow.getMonth()]; //the item in the months Array that has the number returned from date.getMonth();
+  var dayNow = dateNow.getDate();
+
+  User1.addInput(dayNow + " " + monthNow + " " + yearNow, entry, entryOrder);
+
+  document.write(User1.getInputTable());
+
+
+  </script>
+
+</body>
+
+</html>

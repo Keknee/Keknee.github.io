@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd”>
+<html xmlns=”http://www.w3.org/1999/xhtml”>
+<header>
+</header>
+
+<body>
+  <div id="banner">
+    <div class="heading">
+      <h1>BALANCE<h1>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+
+  //Add the new entry
+  var entry = "";
+  var entryArray = new Array();
+  while((entry = prompt("How was your Work/Life Balance today? (1-10)","")) != "")
+  {
+    var dateNow = new Date();
+    entryArray[entryArray.length] = [entry, dateNow]; //multidimensional array
+  }
+
+  /*
+  for(i=0; i < entryArray.length; i++)
+  {
+    document.write(entryArray[i][0] + " | " + entryArray[i][1] + "<br/>")
+  }
+  */
+
+  document.write("<table border=1>");
+  for(i=0; i < entryArray.length; i++)
+  {
+    document.write("<tr><td>" + entryArray[i][0] + "</td><td>" + entryArray[i][1] + "</td></tr>");
+  }
+  document.write("</table>");
+
+  //Math Functions Begin
+  var sum = function(array)
+  {
+    var total = 0;
+    for (var i = 0; i < array.length; i++)
+    {
+      total += parseInt(array[i]);
+    }
+    return total;
+  };
+
+  var mean = function(array)
+  {
+    var arraySum = sum(array);
+    return arraySum / array.length;
+  }
+
+  var median = function(array)
+  {
+    array = array.sort(); //sorts numbers in order
+    if (array.length % 2 === 0) //array with even number elements (no leftovers after dividing by 2)
+    {
+      return (array[array.length/2] + array[(array.length/2)-1]) / 2;
+    }
+    else
+    {
+      return array[(array.length-1)/2]; //remember array starts at [0]
+    }
+  };
+
+  //Math Functions End
+
+  var mathArray = new Array();
+  for(var i = 0; i < entryArray.length; i++)
+  {
+    mathArray[i] = entryArray[i][0];
+  }
+
+  document.write("<p>Mean: " + mean(mathArray) + "</p>");
+  document.write("<p>Median: " + median(mathArray) + "</p>");
+
+
+
+  </script>
+
+</body>
+
+</html>

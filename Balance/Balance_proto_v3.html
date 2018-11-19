@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd”>
+<html xmlns=”http://www.w3.org/1999/xhtml”>
+
+<header>
+</header>
+
+<body>
+  <div id="banner">
+    <div class="heading">
+      <h1>BALANCE<h1>
+    </div>
+  </div>
+
+  <form class="slidecontainer">
+    Work<input type="range" min="-3" max="3" value="0" class="slider line" id="myRange">Life
+  </form>
+  <button type="button" onclick="enter()">Submit</button>
+  <button type="button" onclick="finish()">Finish</button>
+
+  <p id="results"></p>
+
+  <script type="text/javascript">
+
+    //define variables for entry
+    var slider = document.getElementById("myRange");
+    var entry = ""
+    var entryArray = new Array();
+
+    //define function when hitting the Submit button
+    function enter()
+    {
+      console.log("hello world")
+      entry = slider.value;
+      var dateNow = new Date();
+      entryArray[entryArray.length] = [entry, dateNow];
+    }
+
+    //define descriptive statistic functions
+    var sum = function(array)
+    {
+      var total = 0;
+      for (var i = 0; i < array.length; i++)
+      {
+        total += parseInt(array[i]);
+      }
+      return total;
+    };
+
+    var mean = function(array)
+    {
+      var arraySum = sum(array);
+      return arraySum / array.length;
+    }
+
+    var median = function(array)
+    {
+      array = array.sort(); //sorts numbers in order
+      if (array.length % 2 === 0) //array with even number elements (no leftovers after dividing by 2)
+      {
+        return (array[array.length/2] + array[(array.length/2)-1]) / 2;
+      }
+      else
+      {
+        return array[(array.length-1)/2]; //remember array starts at [0]
+      }
+    };
+
+    //define function when hitting the Finish button
+    //***THIS ISN'T WORKING!!!!
+    function finish()
+    {
+      var resultsTableHTML = "<table border=1>";
+      for(i=0; i < entryArray.length; i++)
+      {
+        var entryVal = entryArray[i][0];
+        var numVal = parseInt(entryVal);
+
+        if(numVal < 0)
+        {
+          entryVal = entryVal.fontcolor("purple");
+        }
+        else if (numVal > 0)
+        {
+          entryVal = entryVal.fontcolor("orange");
+        }
+        else
+        {
+          entryVal = entryVal.fontcolor("black");
+        }
+        resultsTableHTML += ("<tr><td>" + entryVal + "</td><td>" + entryArray[i][1] + "</td></tr>");
+      }
+      resultsTableHTML += "</table>";
+      document.getElementById("results").innerHTML += resultsTableHTML
+
+      var mathArray = new Array();
+      for(var i = 0; i < entryArray.length; i++)
+      {
+        mathArray[i] = entryArray[i][0];
+      }
+
+      var avg = mean(mathArray).toString();
+      if(mean(mathArray) < 0)
+      {
+        avg = avg.fontcolor("purple");
+      }
+      else if (mean(mathArray) > 0)
+      {
+        avg = avg.fontcolor("orange");
+      }
+      else
+      {
+        avg = avg.fontcolor("black");
+      }
+
+
+
+      document.getElementById("results").innerHTML += ("<p>Mean: " + avg + "</p>");
+      document.getElementById("results").innerHTML += ("<p>Median: " + median(mathArray) + "</p>");
+    };
+
+
+  </script>
+
+</body>
+
+</html>
